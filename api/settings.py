@@ -1,7 +1,11 @@
+import environ
 from pathlib import Path
 
+env = environ.Env()
+environ.Env.read_env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = "django-insecure-h1r&4vsv6so_q#r!f9@x(an7p-#mljk7w0n&#q*a@5wzhh8yu3"
+SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 ALLOWED_HOSTS = []
 
