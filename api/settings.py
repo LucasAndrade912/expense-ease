@@ -1,5 +1,6 @@
 import environ
 from pathlib import Path
+from datetime import timedelta
 
 env = environ.Env()
 environ.Env.read_env()
@@ -18,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_framework_simplejwt",
     "expense_ease_api",
 ]
 
@@ -72,6 +74,13 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+}
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
