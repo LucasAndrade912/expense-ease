@@ -22,7 +22,6 @@ class TransactionSerializer(serializers.ModelSerializer):
             "transaction_type",
             "value",
             "category",
-            "user",
             "date",
             "payment_method",
         ]
