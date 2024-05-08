@@ -22,6 +22,8 @@ class TransactionSerializer(serializers.ModelSerializer):
             "transaction_type",
             "value",
             "category",
+            "user",
             "date",
             "payment_method",
         ]
+        extra_kwargs = {"user": {"write_only": True}}
